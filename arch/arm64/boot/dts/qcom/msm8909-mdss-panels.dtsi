@@ -12,6 +12,7 @@
 
 #include "dsi-panel-390p-auo-cmd.dtsi"
 #include "dsi-panel-hx8394d-720p-video.dtsi"
+#include "dsi_panel_auo_w020_oled_1p4_video.dtsi"
 
 &soc {
 	dsi_panel_pwr_supply: dsi_panel_pwr_supply {
@@ -73,4 +74,9 @@
 &dsi_auo_390p_cmd {
 	qcom,mdss-dsi-bl-pmic-control-type = "bl_ctrl_dcs";
 	qcom,panel-supply-entries = <&dsi_pm660_panel_pwr_supply>;
+};
+
+&dsi_auo_w020_1p4_vid {
+	qcom,mdss-dsi-bl-pmic-control-type = "bl_ctrl_dcs";
+	qcom,panel-supply-entries = <&dsi_panel_pwr_supply>;
 };

@@ -292,7 +292,7 @@
 		pmx_mdss: pmx_mdss {
 			mdss_dsi_active: mdss_dsi_active {
 				mux {
-					pins = "gpio25", "gpio37";
+					pins = "gpio37";
 					function = "gpio";
 				};
 
@@ -305,7 +305,7 @@
 
 			mdss_dsi_suspend: mdss_dsi_suspend {
 				mux {
-					pins = "gpio25", "gpio37";
+					pins = "gpio37";
 					function = "gpio";
 				};
 
@@ -339,6 +339,34 @@
 				config {
 					drive-strength = <2>; /* 2 mA */
 					bias-pull-down; /* pull down */
+				};
+			};
+		};
+
+		pmx_mdss_rst {
+			mdss_dsi_rst_active: mdss_dsi_rst_active {
+				mux {
+					pins = "gpio25";
+					function = "gpio";
+				};
+
+				config {
+					drive-strength = <8>; /* 8 mA */
+					bias-disable = <0>; /* no pull */
+					output-high;
+				};
+			};
+
+			mdss_dsi_rst_suspend: mdss_dsi_rst_suspend {
+				mux {
+					pins = "gpio25";
+					function = "gpio";
+				};
+
+				config {
+					drive-strength = <2>; /* 2 mA */
+					bias-pull-down; /* pull down */
+					output-high;
 				};
 			};
 		};
@@ -835,7 +863,7 @@
 			};
 		};
 
-		smb_int_pin {
+		smb_int_pin: smb_int_pin {
 			smb_int_default: smb_int_default {
 				mux {
 					pins = "gpio58";
@@ -1110,7 +1138,7 @@
 				config {
 					pins = "gpio13";
 					drive-strength = <2>;
-					bias-pull-down;
+					bias-pull-up;
 				};
 			};
 		};
@@ -1140,7 +1168,7 @@
 				config {
 					pins = "gpio12";
 					drive-strength = <2>;
-					bias-pull-down;
+					bias-pull-up;
 				};
 			};
 		};

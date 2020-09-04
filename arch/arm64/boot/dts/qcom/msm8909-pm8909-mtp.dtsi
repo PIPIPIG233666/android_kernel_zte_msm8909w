@@ -55,7 +55,8 @@
 		qcom,vibrator@c000 {
 			status = "okay";
 			qcom,vib-timeout-ms = <15000>;
-			qcom,vib-vtg-level-mV = <3100>;
+			qcom,vib-vtg-level-mV = <1600>;
+			qcom,vib-vtg-level-mV-2700 = <2700>;
 		};
 	};
 };
@@ -67,12 +68,10 @@
 	};
 
 	mpp@a100 { /* MPP 2 */
-		/* Backlight PWM */
-		qcom,mode = <1>;		/* Digital output */
-		qcom,invert = <0>;		/* Disable invert */
-		qcom,src-sel = <4>;		/* DTEST1 */
-		qcom,vin-sel = <0>;		/* VPH_PWR */
-		qcom,master-en = <1>;		/* Enable MPP */
+		/* SKIN THERMAL 1 */
+		qcom,mode = <4>;		/* QPNP_PIN_MODE_AIN */
+		qcom,src-sel = <0>;		/* QPNP_PIN_SEL_FUNC_CONSTANT */
+		qcom,ain-route = <3>;		/* HKADC5/6/7/8, select 8 */
 	};
 
 	mpp@a200 { /* MPP 3 */
@@ -81,8 +80,11 @@
 	};
 
 	mpp@a300 { /* MPP 4 */
-		/* HR LED */
-		status = "disabled";
+		/* SKIN THERMAL 0 */
+		qcom,mode = <4>;		/* QPNP_PIN_MODE_AIN */
+		qcom,src-sel = <0>;		/* QPNP_PIN_SEL_FUNC_CONSTANT */
+		qcom,ain-route = <1>;		/* HKADC5/6/7/8, select 6 */
+		qcom,master-en = <1>;		/* Enable MPP */
 	};
 };
 
